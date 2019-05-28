@@ -21,6 +21,8 @@ export default (state = contactReducerDefaultState, action) => {
           return contact;
         }
       });
+      case 'SET_CONTACTS':
+      return action.contacts;
     default:
       return state;
   }
