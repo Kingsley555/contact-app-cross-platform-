@@ -12,7 +12,7 @@ import './styles/styles.scss';
 import * as serviceWorker from './serviceWorker';
 
 const store = configureStore();
-console.log(store)
+
 
 store.dispatch(
   addContact({
