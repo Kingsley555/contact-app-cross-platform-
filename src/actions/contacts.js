@@ -1,29 +1,68 @@
 import uuid from 'uuid';
+import database from '../firebase/firebase';
 
-// ADD_CONTACT
-export const addContact = (
-  {
-    firstName = '',
+
+
+// ADD_EXPENSE
+export const addContact = (contact) => ({
+  type: 'ADD_CONTACT',
+  contact
+});
+
+export const startAddContact = (contactData = {}) => {
+  return (dispatch) => {
+    const {
+      firstName = '',
     lastName = '',
     phone = 0,
     email = '',
     twitter = '',
     description= '',
    createdAt = 0
-  } = {}
-) => ({
-  type: 'ADD_CONTACT',
-  contact: {
-    id: uuid(),
-    firstName,
-    lastName,
-    phone,
-    email,
-    twitter,
-    description,
-    createdAt 
-  }
-});
+    } = contactData;
+    const contact = { firstName,
+      lastName,
+      phone,
+      email,
+      twitter,
+      description,
+      createdAt };
+
+    database.ref('contacts').push(contact).then((ref) => {
+      dispatch(addContact({
+        id: ref.key,
+        ...contact
+      }));
+    });
+  };
+};
+
+// // ADD_CONTACT
+// export const addContact = (
+//   {
+//     firstName = '',
+//     lastName = '',
+//     phone = 0,
+//     email = '',
+//     twitter = '',
+//     description= '',
+//    createdAt = 0
+//   } = {}
+// ) => ({
+//   type: 'ADD_CONTACT',
+//   contact: {
+//     id: uuid(),
+//     firstName,
+//     lastName,
+//     phone,
+//     email,
+//     twitter,
+//     description,
+//     createdAt 
+//   }
+// });
+
+
 
 // REMOVE_CONTACT
 export const removeContact = ({ id } = {}) => ({

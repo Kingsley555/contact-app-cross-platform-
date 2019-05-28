@@ -15,7 +15,7 @@ const ContactList = props => (
   </div>
 );
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     contacts: visibleContacts(state.contacts, state.filters)
   };
