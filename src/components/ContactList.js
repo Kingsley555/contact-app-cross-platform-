@@ -4,14 +4,17 @@ import ContactListItem from './ContactListItem';
 import visibleContacts from '../selectors/contacts';
 
 const ContactList = props => (
-  <div>
-    {props.contacts.length === 0 ? (
-      <p>No Contact</p>
-    ) : (
-      props.contacts.map(contact => {
-        return <ContactListItem key={contact.id} {...contact} />;
-      })
-    )}
+  <div  className="content-container" >
+  <div className="list-body">
+  {props.contacts.length === 0 ? (
+    <p>No Contact</p>
+  ) : (
+    props.contacts.map(contact => {
+      return <ContactListItem  key={contact.id} {...contact} />;
+    })
+  )}
+  </div>
+  
   </div>
 );
 

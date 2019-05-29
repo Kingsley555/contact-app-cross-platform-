@@ -12,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 
 const store = configureStore();
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
+// ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
 
 store.dispatch(startSetContacts()).then(() => {
   ReactDOM.render(

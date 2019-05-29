@@ -4,7 +4,7 @@ import ContactForm from './ContactForm';
 import { startEditContact, startRemoveContact } from '../actions/contacts';
 
 export class EditContact extends React.Component {
-  onSubmit = (contact) => {
+  onSubmit = contact => {
     this.props.startEditContact(this.props.contact.id, contact);
     this.props.history.push('/');
   };
@@ -15,30 +15,35 @@ export class EditContact extends React.Component {
   render() {
     return (
       <div>
-        <ContactForm
-          contact={this.props.contact}
-          onSubmit={this.onSubmit}
-        />
-        <button onClick={this.onRemove}>Delete Contact</button>
+        <div className="page-header">
+          <div className="content-container">
+            <h1 className="page-header__title">Edit Contact</h1>
+          </div>
+        </div>
+        <div className="content-container">
+          <ContactForm contact={this.props.contact} onSubmit={this.onSubmit} />
+          <button className="button button--secondary" onClick={this.onRemove}>
+            Delete Contact
+          </button>
+        </div>
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = (state, props) => ({
-  contact: state.contacts.find((contact) => contact.id === props.match.params.id)
+  contact: state.contacts.find(contact => contact.id === props.match.params.id)
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
   startEditContact: (id, contact) => dispatch(startEditContact(id, contact)),
-  startRemoveContact: (data) => dispatch(startRemoveContact(data))
+  startRemoveContact: data => dispatch(startRemoveContact(data))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditContact);
-
-
-
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EditContact);
 
 // import React from 'react';
 // import { connect } from 'react-redux';

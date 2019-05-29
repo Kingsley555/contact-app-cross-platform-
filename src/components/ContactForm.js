@@ -76,9 +76,10 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
+      <div >
+        <form className="form"   onSubmit={this.onSubmit}>
+        {this.state.error && <p className="form__error">{this.state.error}</p>}
+
           <input
             type="text"
             placeholder="First name"
@@ -112,6 +113,7 @@ class ContactForm extends Component {
           />
           <textarea
             placeholder="Description"
+            className="textarea"
             value={this.state.description}
             onChange={this.onDescriptionChange}
           />
@@ -124,7 +126,7 @@ class ContactForm extends Component {
             isOutsideRange={() => false}
           />
 
-          <button>Add Contact</button>
+          <button className="button">Save Contact</button>
         </form>
       </div>
     );
