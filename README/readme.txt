@@ -1,5 +1,5 @@
 
-(a)Pull the master branch from bitbucket and open with VS CODE or your preferred IDE
+(a)Pull and clone the master branch from bitbucket and open with VS CODE or your preferred IDE
 (b) ( If you want to use the zip file, unzip the folder in your desktop and open with VS CODE or your preferred IDE )
 
 From the terminal: Navigate to the project folder and Run "npm install to install"
