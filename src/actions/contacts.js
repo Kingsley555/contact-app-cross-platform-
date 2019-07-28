@@ -3,7 +3,7 @@ import database from '../firebase/firebase';
 
 
 
-// ADD_EXPENSE
+// ADD_CONTACT
 export const addContact = (contact) => ({
   type: 'ADD_CONTACT',
   contact

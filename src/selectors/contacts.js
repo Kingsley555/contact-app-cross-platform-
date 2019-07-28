@@ -5,7 +5,7 @@ export default (contacts, { text, sortBy, startDate, endDate} ) => {
     const createdAtMoment = moment(contact.createdAt);
     const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true;
     const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true;
-    const textMatch = contact.firstName.toLowerCase().includes(text.toLowerCase())|| contact.lastName.toLowerCase().includes(text.toLowerCase());
+    const textMatch = contact.firstName.toLowerCase().includes(text.toLowerCase()) || contact.lastName.toLowerCase().includes(text.toLowerCase());
      return startDateMatch && endDateMatch && textMatch;}).sort((a, b) => {
     if (sortBy === 'date') {
       return a.createdAt < b.createdAt ? 1 : -1;

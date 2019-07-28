@@ -40,6 +40,7 @@ class ContactListFilters extends React.Component {
         <div className="input-group">
           <div className=" input-group input-group__item">
             <input
+            placeholder="Search"
               type="text"
               value={this.props.filters.text}
               onChange={this.onTextChange}
